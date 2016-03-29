@@ -4,7 +4,7 @@
 #
 Name     : rubygem-closure-compiler
 Version  : 1.1.11
-Release  : 4
+Release  : 5
 URL      : https://rubygems.org/downloads/closure-compiler-1.1.11.gem
 Source0  : https://rubygems.org/downloads/closure-compiler-1.1.11.gem
 Summary  : No detailed summary available
@@ -26,17 +26,17 @@ gem spec %{SOURCE0} -l --ruby > rubygem-closure-compiler.gemspec
 gem build rubygem-closure-compiler.gemspec
 
 %install
-gem_dir=$(ruby -e'puts Gem.default_dir')
+%global gem_dir $(ruby -e'puts Gem.default_dir')
 gem install -V \
 --local \
 --force \
---install-dir .${gem_dir} \
+--install-dir .%{gem_dir} \
 --bindir .%{_bindir} \
 closure-compiler-1.1.11.gem
 
-mkdir -p %{buildroot}${gem_dir}
-cp -pa .${gem_dir}/* \
-%{buildroot}${gem_dir}
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+%{buildroot}%{gem_dir}
 
 if [ -d .%{_bindir} ]; then
 mkdir -p %{buildroot}%{_bindir}
@@ -44,26 +44,15 @@ cp -pa .%{_bindir}/* \
 %{buildroot}%{_bindir}/
 fi
 
+
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ruby/gems/2.2.0/cache/closure-compiler-1.1.11.gem
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/cdesc-Compiler.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/command-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/compile-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/compile_file-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/compile_files-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/compress-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/options-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Compiler/serialize_options-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/Error/cdesc-Error.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/Closure/cdesc-Closure.ri
-/usr/lib64/ruby/gems/2.2.0/doc/closure-compiler-1.1.11/ri/cache.ri
-/usr/lib64/ruby/gems/2.2.0/gems/closure-compiler-1.1.11/COPYING
-/usr/lib64/ruby/gems/2.2.0/gems/closure-compiler-1.1.11/LICENSE
-/usr/lib64/ruby/gems/2.2.0/gems/closure-compiler-1.1.11/README.textile
-/usr/lib64/ruby/gems/2.2.0/gems/closure-compiler-1.1.11/closure-compiler.gemspec
-/usr/lib64/ruby/gems/2.2.0/gems/closure-compiler-1.1.11/lib/closure-compiler-20140730.jar
-/usr/lib64/ruby/gems/2.2.0/gems/closure-compiler-1.1.11/lib/closure-compiler.rb
-/usr/lib64/ruby/gems/2.2.0/gems/closure-compiler-1.1.11/lib/closure/compiler.rb
-/usr/lib64/ruby/gems/2.2.0/specifications/closure-compiler-1.1.11.gemspec
+/usr/lib64/ruby/gems/2.3.0/cache/closure-compiler-1.1.11.gem
+/usr/lib64/ruby/gems/2.3.0/gems/closure-compiler-1.1.11/COPYING
+/usr/lib64/ruby/gems/2.3.0/gems/closure-compiler-1.1.11/LICENSE
+/usr/lib64/ruby/gems/2.3.0/gems/closure-compiler-1.1.11/README.textile
+/usr/lib64/ruby/gems/2.3.0/gems/closure-compiler-1.1.11/closure-compiler.gemspec
+/usr/lib64/ruby/gems/2.3.0/gems/closure-compiler-1.1.11/lib/closure-compiler-20140730.jar
+/usr/lib64/ruby/gems/2.3.0/gems/closure-compiler-1.1.11/lib/closure-compiler.rb
+/usr/lib64/ruby/gems/2.3.0/gems/closure-compiler-1.1.11/lib/closure/compiler.rb
+/usr/lib64/ruby/gems/2.3.0/specifications/closure-compiler-1.1.11.gemspec
