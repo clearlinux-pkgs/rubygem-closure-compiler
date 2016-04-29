@@ -4,7 +4,7 @@
 #
 Name     : rubygem-closure-compiler
 Version  : 1.1.11
-Release  : 6
+Release  : 7
 URL      : https://rubygems.org/downloads/closure-compiler-1.1.11.gem
 Source0  : https://rubygems.org/downloads/closure-compiler-1.1.11.gem
 Summary  : No detailed summary available
